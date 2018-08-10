@@ -9,7 +9,7 @@ public class Loot : MonoBehaviour {
 	public int m_PossibleLoot;
 
 	private void Awake() {
-		m_LootHolder = Instantiate(m_LootHolder, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, m_MainCanvas.transform);
+		m_LootHolder = Instantiate(m_LootHolder, Camera.main.WorldToScreenPoint(GetComponent<Renderer>().bounds.center), Quaternion.identity, m_MainCanvas.transform);
 		m_LootHolder.SetActive(false);
 
 		Vector3[] Corners = new Vector3[4];
@@ -30,10 +30,6 @@ public class Loot : MonoBehaviour {
 	}
 
 	private void OnMouseDown() {
-		foreach(Transform LootHolder in m_MainCanvas.transform){
-			if(LootHolder.gameObject.activeInHierarchy)
-				LootHolder.gameObject.SetActive(false);
-		}
 		m_LootHolder.SetActive(!m_LootHolder.activeInHierarchy);
 	}
 }
