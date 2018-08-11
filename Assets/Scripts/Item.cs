@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class Item : MonoBehaviour {
 
 	public RectTransform m_LootHolder;
+	public RectTransform m_InventoryHolder;
 	public Vector3 m_DragOffset;
 	public Vector3 m_PreviousPosition;
 	public float m_SpawnChance;
@@ -41,9 +42,11 @@ public class Item : MonoBehaviour {
 	}
 
 	public void EndDrag(){
+		if(WithinInventory())
+			transform.SetParent(m_InventoryHolder);
 		if(WithinLoot()){
 			transform.SetParent(m_LootHolder);
-		}else if(!WithinLoot()){
+		}else if(!WithinLoot() && !WithinInventory()){
 			transform.position = m_PreviousPosition;
 		}
 	}
@@ -55,8 +58,20 @@ public class Item : MonoBehaviour {
 
 		if(MousePos.x > Corners[0].x && MousePos.y > Corners[0].y)
 			if(MousePos.x < Corners[2].x && MousePos.y < Corners[2].y)
-				return true;
+				if(m_LootHolder.gameObject.activeInHierarchy)
+					return true;
 		return false;
 	}
 
+	private bool WithinInventory(){
+		Vector3[] Corners = new Vector3[4];
+		m_InventoryHolder.GetWorldCorners(Corners);
+		Vector3 MousePos = Input.mousePosition;
+
+		if(MousePos.x > Corners[0].x && MousePos.y > Corners[0].y)
+			if(MousePos.x < Corners[2].x && MousePos.y < Corners[2].y)
+				if(m_InventoryHolder.gameObject.activeInHierarchy)
+					return true;
+		return false;
+	}
 }
