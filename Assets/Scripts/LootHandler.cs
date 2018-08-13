@@ -55,10 +55,10 @@ public class LootHandler : MonoBehaviour {
 		m_Searching = true;
 		m_LootHolderText.text = "Searching...";
 		yield return new WaitForSeconds(1f);
-
-		foreach(GameObject Item in LootScript.m_LootList){
+		
+		for(int i = LootScript.m_LootList.Count -1; i >= 0; i--){
 			yield return new WaitForSeconds(1f);
-			Item.SetActive(true);
+			LootScript.m_LootList[i].SetActive(true);
 		}
 
 		if(m_LootHolder.transform.childCount == 1)

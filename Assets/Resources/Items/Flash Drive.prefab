@@ -54,10 +54,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc4b656edb9b744ab6de745149298dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Loot: {fileID: 0}
   m_LootHolder: {fileID: 0}
+  m_InventoryHolder: {fileID: 0}
   m_DragOffset: {x: 0, y: 0, z: 0}
   m_PreviousPosition: {x: 0, y: 0, z: 0}
-  m_SpawnChance: 10
+  m_SpawnChance: 25
 --- !u!114 &114599527202448742
 MonoBehaviour:
   m_ObjectHideFlags: 1

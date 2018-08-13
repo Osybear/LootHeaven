@@ -1543,6 +1543,27 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d2d614d707a9dee42a09092183725603, type: 3}
+--- !u!114 &772119987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 772119984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539a36f12097b634abf095cbb12cd00f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LootHandler: {fileID: 1946087857}
+  m_InventoryHolder: {fileID: 688844749}
+  m_LootHolder: {fileID: 2091043534}
+  m_LootList:
+  - {fileID: 1732540260752574, guid: 5a0993165cd241843a7cce3b223a92fe, type: 2}
+  - {fileID: 1650110835734064, guid: 42720e6c56934fd44afdbd1d1ece37a0, type: 2}
+  - {fileID: 1378353797238870, guid: d655c89a33af55c48847597697035b77, type: 2}
+  - {fileID: 1855441957729166, guid: dc6b942850b195040ab4fa0281f27c2e, type: 2}
+  m_PossibleLoot: 5
+  m_Searched: 0
 --- !u!1 &782077922 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: d2d614d707a9dee42a09092183725603,
@@ -3452,6 +3473,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 16c031b727798654e9c60c366a0cbf87,
     type: 3}
   m_PrefabInternal: {fileID: 216665335}
+--- !u!114 &1648886199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1648886198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539a36f12097b634abf095cbb12cd00f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LootHandler: {fileID: 1946087857}
+  m_InventoryHolder: {fileID: 688844749}
+  m_LootHolder: {fileID: 2091043534}
+  m_LootList:
+  - {fileID: 1732540260752574, guid: 5a0993165cd241843a7cce3b223a92fe, type: 2}
+  - {fileID: 1650110835734064, guid: 42720e6c56934fd44afdbd1d1ece37a0, type: 2}
+  - {fileID: 1378353797238870, guid: d655c89a33af55c48847597697035b77, type: 2}
+  - {fileID: 1855441957729166, guid: dc6b942850b195040ab4fa0281f27c2e, type: 2}
+  m_PossibleLoot: 5
+  m_Searched: 0
 --- !u!64 &1648886200
 MeshCollider:
   m_ObjectHideFlags: 0

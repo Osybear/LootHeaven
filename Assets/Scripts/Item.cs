@@ -45,11 +45,13 @@ public class Item : MonoBehaviour {
 	public void EndDrag(){
 		if(WithinInventory()){
 			transform.SetParent(m_InventoryHolder);
-			m_Loot.m_LootList.RemoveAt(m_Loot.m_LootList.IndexOf(this.gameObject));
+			if(m_Loot.m_LootList.IndexOf(gameObject) != -1)
+				m_Loot.m_LootList.RemoveAt(m_Loot.m_LootList.IndexOf(gameObject));
 		}
 		if(WithinLoot()){{
 			transform.SetParent(m_LootHolder);
-			m_Loot.m_LootList.Add(gameObject);
+			if(m_Loot.m_LootList.IndexOf(gameObject) == -1)
+				m_Loot.m_LootList.Add(gameObject);
 		}
 		}else if(!WithinLoot() && !WithinInventory()){
 			transform.position = m_PreviousPosition;
