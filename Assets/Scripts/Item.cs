@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Item : MonoBehaviour {
 
+	public Loot m_Loot;
 	public RectTransform m_LootHolder;
 	public RectTransform m_InventoryHolder;
 	public Vector3 m_DragOffset;
@@ -42,10 +43,14 @@ public class Item : MonoBehaviour {
 	}
 
 	public void EndDrag(){
-		if(WithinInventory())
+		if(WithinInventory()){
 			transform.SetParent(m_InventoryHolder);
-		if(WithinLoot()){
+			m_Loot.m_LootList.RemoveAt(m_Loot.m_LootList.IndexOf(this.gameObject));
+		}
+		if(WithinLoot()){{
 			transform.SetParent(m_LootHolder);
+			m_Loot.m_LootList.Add(gameObject);
+		}
 		}else if(!WithinLoot() && !WithinInventory()){
 			transform.position = m_PreviousPosition;
 		}
