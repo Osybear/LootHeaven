@@ -6,12 +6,15 @@ using UnityEngine.EventSystems;
 
 public class Item : MonoBehaviour {
 
-	public Loot m_Loot;
+	public LootHandler m_LootHandlerScript;
+	public Loot m_LootScript;
+	public CapacityHandler m_CapacityHandler;
 	public RectTransform m_LootHolder;
 	public RectTransform m_InventoryHolder;
 	public Vector3 m_DragOffset;
 	public Vector3 m_PreviousPosition;
 	public float m_SpawnChance;
+	public int m_Capacity;
 
 	private void Awake() {
 		EventTrigger EventTrigger = GetComponent<EventTrigger>();
@@ -45,15 +48,18 @@ public class Item : MonoBehaviour {
 	public void EndDrag(){
 		if(WithinInventory()){
 			transform.SetParent(m_InventoryHolder);
-			if(m_Loot.m_LootList.IndexOf(gameObject) != -1)
-				m_Loot.m_LootList.RemoveAt(m_Loot.m_LootList.IndexOf(gameObject));
-		}
-		if(WithinLoot()){{
+			if(m_LootScript != null){
+				m_LootScript.m_LootList.RemoveAt(m_LootScript.m_LootList.IndexOf(gameObject));
+				m_LootScript = null;
+			}
+		}else if(WithinLoot()){
 			transform.SetParent(m_LootHolder);
-			if(m_Loot.m_LootList.IndexOf(gameObject) == -1)
-				m_Loot.m_LootList.Add(gameObject);
-		}
-		}else if(!WithinLoot() && !WithinInventory()){
+			if(m_LootHandlerScript.m_CurrentLootScript != m_LootScript){
+				m_LootHandlerScript.m_CurrentLootScript.m_LootList.Add(gameObject);
+				m_LootScript = m_LootHandlerScript.m_CurrentLootScript;
+			}
+
+		}else if(!WithinInventory() && !WithinLoot()){
 			transform.position = m_PreviousPosition;
 		}
 	}

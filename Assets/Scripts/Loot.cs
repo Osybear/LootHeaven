@@ -4,13 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Loot : MonoBehaviour {
-	public LootHandler m_LootHandler;
+	public LootHandler m_LootHandlerScript;
+	public CapacityHandler m_CapacityHandler;
 	public GameObject m_InventoryHolder;
 	public GameObject m_LootHolder;
 	public List<GameObject> m_LootList;
 	public int m_PossibleLoot;
 	public bool m_Searched;
-	
+	[TextArea]
+	public string m_SearchingText;
+
 	private void Awake() {
 		Vector3[] Corners = new Vector3[4];
 		m_LootHolder.GetComponent<RectTransform>().GetWorldCorners(Corners);
@@ -29,7 +32,9 @@ public class Loot : MonoBehaviour {
 				Item ItemScript = LootPrefab.GetComponent<Item>();
 				ItemScript.m_LootHolder = m_LootHolder.GetComponent<RectTransform>();
 				ItemScript.m_InventoryHolder = m_InventoryHolder.GetComponent<RectTransform>();
-				ItemScript.m_Loot = this;
+				ItemScript.m_LootScript = this;
+				ItemScript.m_LootHandlerScript = m_LootHandlerScript;
+				ItemScript.m_CapacityHandler = m_CapacityHandler;
 				LootList.Add(LootPrefab);
 			}
 		}
@@ -37,8 +42,8 @@ public class Loot : MonoBehaviour {
 	}
 
 	private void OnMouseDown() {
-		if(!m_LootHandler.WithinLoot())
-			m_LootHandler.OpenItems(this);
+		if(!m_LootHandlerScript.WithinLoot())
+			m_LootHandlerScript.OpenItems(this);
 	}
 
 
