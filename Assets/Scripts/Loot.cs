@@ -28,6 +28,7 @@ public class Loot : MonoBehaviour {
 			{
 				Vector3 RandomPos = new Vector3(Random.Range(Corners[0].x + 100, Corners[3].x - 100), Random.Range(Corners[0].y + 100, Corners[2].y - 100), 0);
 				GameObject LootPrefab = Instantiate(Prefab, RandomPos, Quaternion.identity, m_LootHolder.transform);
+				LootPrefab.name = Prefab.name;
 				LootPrefab.SetActive(false);
 				Item ItemScript = LootPrefab.GetComponent<Item>();
 				ItemScript.m_LootHolder = m_LootHolder.GetComponent<RectTransform>();

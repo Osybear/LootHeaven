@@ -18,10 +18,7 @@ public class CapacityHandler : MonoBehaviour {
 	}
 
 	public bool CheckCapacity(int Amount){
-		if(m_Capacity + Amount > m_MaxCapacity)
-			return false;
-		else
-			return true;
+		return m_Capacity + Amount > m_MaxCapacity;
 	}
 
 	public void AddCapacity(int Amount){

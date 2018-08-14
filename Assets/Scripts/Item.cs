@@ -15,7 +15,8 @@ public class Item : MonoBehaviour {
 	public Vector3 m_PreviousPosition;
 	public float m_SpawnChance;
 	public int m_Capacity;
-
+	public int m_Value;
+	
 	private void Awake() {
 		EventTrigger EventTrigger = GetComponent<EventTrigger>();
 
@@ -33,7 +34,6 @@ public class Item : MonoBehaviour {
 		entry2.eventID = EventTriggerType.EndDrag;
 		entry2.callback.AddListener( (eventData) => { EndDrag(); }  );
 		EventTrigger.triggers.Add(entry2);
-
 	}
 
 	public void PointerDown(){
@@ -46,19 +46,22 @@ public class Item : MonoBehaviour {
 	}
 
 	public void EndDrag(){
-		if(WithinInventory()){
+		if(WithinInventory() && m_CapacityHandler.CheckCapacity(m_Capacity) == false){
 			transform.SetParent(m_InventoryHolder);
 			if(m_LootScript != null){
 				m_LootScript.m_LootList.RemoveAt(m_LootScript.m_LootList.IndexOf(gameObject));
 				m_LootScript = null;
+				m_CapacityHandler.AddCapacity(m_Capacity);
 			}
+		}else if(WithinInventory() && m_CapacityHandler.CheckCapacity(m_Capacity) == true){
+			transform.position = m_PreviousPosition;
 		}else if(WithinLoot()){
 			transform.SetParent(m_LootHolder);
 			if(m_LootHandlerScript.m_CurrentLootScript != m_LootScript){
 				m_LootHandlerScript.m_CurrentLootScript.m_LootList.Add(gameObject);
 				m_LootScript = m_LootHandlerScript.m_CurrentLootScript;
+				m_CapacityHandler.RemoveCapacity(m_Capacity);
 			}
-
 		}else if(!WithinInventory() && !WithinLoot()){
 			transform.position = m_PreviousPosition;
 		}
