@@ -31,6 +31,7 @@ public class ItemHandler : MonoBehaviour {
 				IOManager.inventoryManager.inventory.instanceItems.Remove(gameObject);
 				IO.instanceItems.Add(gameObject);
 				transform.SetParent(IOManager.lootManager.holder.transform);
+				IOManager.inventoryManager.RemoveWeight(item.weight);
 			}	
 		}else if(IOManager.inventoryManager.WithinInventoryWindow(transform.position)){
 			if(IOManager.inventoryManager.inventory.instanceItems.IndexOf(gameObject) == -1){

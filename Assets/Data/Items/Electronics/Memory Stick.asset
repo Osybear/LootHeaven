@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   artwork: {fileID: 21300000, guid: c7d0299870f481c44bc01e54a50b3d29, type: 3}
   value: 10
-  weight: 50
+  weight: 10
   spawnChance: 100

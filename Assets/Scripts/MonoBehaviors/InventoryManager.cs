@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour {
 	public Text weigthText;
 
 	private void Awake() {
-		weigthText.text = inventory.currentWeight + "/" + inventory.maxWeight;
+		UpdateWeightText();
 	}
 	
 	public bool WithinInventoryWindow(Vector3 position){
@@ -26,10 +26,18 @@ public class InventoryManager : MonoBehaviour {
 	public bool CheckWeight(float weight){
 		if(weight + inventory.currentWeight <= inventory.maxWeight){
 			inventory.currentWeight += weight;
-			weigthText.text = inventory.currentWeight + "/" + inventory.maxWeight;
+			UpdateWeightText();
 			return true;
 		}
 		return false;
 	}
 
+	public void RemoveWeight(float weight){
+		inventory.currentWeight -= weight;
+		UpdateWeightText();
+	}
+
+	public void UpdateWeightText(){
+		weigthText.text = inventory.currentWeight + "/" + inventory.maxWeight;
+	}
 }
