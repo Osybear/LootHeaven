@@ -67,7 +67,7 @@ public class RoundManager : MonoBehaviour {
 		}
 		infoText.text += "\nValue $" + totalValue;
 
-		infoText.text += "\n\nLoot Looted";
+		infoText.text += "\n\nLooted";
 		totalValue = 0;	
 		foreach(ItemCount itemCount in inventoryCount){
 			infoText.text += "\n"+ itemCount.amount + "x " + itemCount.item.name + "s";
