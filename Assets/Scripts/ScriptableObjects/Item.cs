@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Item")]
+[CreateAssetMenu(menuName = "Item")]
 public class Item : ScriptableObject {
 
 	public Sprite artwork;

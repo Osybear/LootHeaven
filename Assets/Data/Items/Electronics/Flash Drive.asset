@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82153218466958d4ab920daffa8b71e3, type: 3}
-  m_Name: Memory Stick
+  m_Name: Flash Drive
   m_EditorClassIdentifier: 
-  artwork: {fileID: 21300000, guid: c7d0299870f481c44bc01e54a50b3d29, type: 3}
+  artwork: {fileID: 21300000, guid: 9056b3173de77bb42911827d081f2cdc, type: 3}
   value: 10
-  weight: 10
+  weight: 50
   spawnChance: 100

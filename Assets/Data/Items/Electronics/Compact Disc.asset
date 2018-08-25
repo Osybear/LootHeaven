@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82153218466958d4ab920daffa8b71e3, type: 3}
-  m_Name: Flash Drive
+  m_Name: Compact Disc
   m_EditorClassIdentifier: 
-  artwork: {fileID: 21300000, guid: 9056b3173de77bb42911827d081f2cdc, type: 3}
+  artwork: {fileID: 21300000, guid: 8f00dfd0177d722499386ddd4723e6af, type: 3}
   value: 10
-  weight: 10
+  weight: 50
   spawnChance: 100
