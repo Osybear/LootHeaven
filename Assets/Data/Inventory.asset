@@ -13,7 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxWeight: 100
   currentWeight: 0
-  instanceItems:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  instanceItems: []

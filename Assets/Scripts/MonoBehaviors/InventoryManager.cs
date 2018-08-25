@@ -9,10 +9,10 @@ public class InventoryManager : MonoBehaviour {
 	public GameObject holder;
 	public Text weigthText;
 
-	private void Awake() {
+	private void Update() {
 		UpdateWeightText();
 	}
-	
+
 	public bool WithinInventoryWindow(Vector3 position){
 		Vector3[] corners = new Vector3[4];
 		holder.GetComponent<RectTransform>().GetWorldCorners(corners);
@@ -26,7 +26,6 @@ public class InventoryManager : MonoBehaviour {
 	public bool CheckWeight(float weight){
 		if(weight + inventory.currentWeight <= inventory.maxWeight){
 			inventory.currentWeight += weight;
-			UpdateWeightText();
 			return true;
 		}
 		return false;
@@ -34,7 +33,6 @@ public class InventoryManager : MonoBehaviour {
 
 	public void RemoveWeight(float weight){
 		inventory.currentWeight -= weight;
-		UpdateWeightText();
 	}
 
 	public void UpdateWeightText(){
