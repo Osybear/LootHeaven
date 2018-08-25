@@ -1,1 +1,1 @@
-# Looting-Heaven
+# Loot-Heaven
