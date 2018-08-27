@@ -12,8 +12,4 @@ public class InteractableObject : ScriptableObject {
 	public List<Item> itemList;
 	public List<GameObject> instanceItems;
 
-	private void OnEnable(){
-		searched = false;
-		instanceItems = new List<GameObject>();
-	}
 }

@@ -10,6 +10,8 @@ public class IOManager : MonoBehaviour {
 	public InventoryManager inventoryManager;
 
 	private void Awake() {
+		IO.instanceItems = new List<GameObject>();
+		IO.searched = false;
 		InstantiateLoot();
 	}
 

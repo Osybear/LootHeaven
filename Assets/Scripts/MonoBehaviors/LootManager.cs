@@ -54,6 +54,8 @@ public class LootManager : MonoBehaviour {
 					foreach(GameObject item in IO.instanceItems){
 						item.SetActive(true);
 					}
+					if(IO.instanceItems.Count == 0)
+						holderText.text = "Empty";
 					holder.transform.position = holderPosition;
 				}
 			}
@@ -67,6 +69,8 @@ public class LootManager : MonoBehaviour {
 				foreach(GameObject item in IO.instanceItems){
 					item.SetActive(true);
 				}
+				if(IO.instanceItems.Count == 0)
+					holderText.text = "Empty";
 				holder.SetActive(true);
 				holder.transform.position = holderPosition;
 			}
@@ -76,6 +80,8 @@ public class LootManager : MonoBehaviour {
 	public IEnumerator SearchIO(InteractableObject IO){
 		searching = true;
 		holderText.text = IO.searchDescription;
+		yield return new WaitForSeconds(1f);
+		
 		for(int i = IO.instanceItems.Count - 1; i >= 0; i--){
 			yield return new WaitForSeconds(1f);
 			IO.instanceItems[i].SetActive(true);
@@ -83,6 +89,9 @@ public class LootManager : MonoBehaviour {
 		holderText.text = null;
 		IO.searched = true;
 		searching = false;
+
+		if(IO.instanceItems.Count == 0)
+			holderText.text = "Empty";
 	}
 
 	public bool WithinLootWindow(Vector3 position){

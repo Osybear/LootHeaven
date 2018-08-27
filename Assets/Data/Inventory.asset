@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   maxWeight: 100
-  currentWeight: 0
-  instanceItems: []
+  currentWeight: 2.3999999
+  instanceItems:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

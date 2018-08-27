@@ -36,6 +36,6 @@ public class InventoryManager : MonoBehaviour {
 	}
 
 	public void UpdateWeightText(){
-		weigthText.text = inventory.currentWeight + "/" + inventory.maxWeight;
+		weigthText.text = inventory.currentWeight.ToString("0.00") + "/" + inventory.maxWeight;
 	}
 }
