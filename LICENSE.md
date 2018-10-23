@@ -1,4 +1,3 @@
-![alt tag](https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/CC0_button.svg/2000px-CC0_button.svg.png "Description goes here")
 CC0 1.0 Universal
 
 Statement of Purpose
